@@ -1,16 +1,15 @@
-// your code here
-const url = document.getElementById("url");
-		const name = document.getElementById("name");
-		const year = document.getElementById("year");
-		const button = document.getElementById("button");
-		button.addEventListener("click",()=>{
-			if(name.value.trim()!=="" && year.value.trim()==""){
-				url.innerHTML = `https://localhost:8080/?name=${encodedURIComponent(name.value)}`
-			}
-			if(year.value.trim()!=="" && name.value.trim()==""){
-				url.innerHTML = `https://localhost:8080/?year=${encodedURIComponent(year.value)}`;
-			}
-			if(year.value.trim()!=="" && name.value.trim()!==""){
-				url.innerHTML = `https://localhost:8080/?name=${encodedURIComponent(name.value)}/?year=${encodedURIComponent(year.value)}`;
-			}
-		})
+document.getElementById("button").addEventListener("click", function() {
+    const name = document.getElementById("name").value;
+    const year = document.getElementById("year").value;
+
+    let url = "https://localhost:8080/";
+
+    // Construct the query string
+    const queryString = new URLSearchParams({
+        name: name,
+        year: year
+    }).toString();
+
+    // Update the h3 element with the new URL
+    document.getElementById("url").innerText = url + "?" + queryString;
+});
