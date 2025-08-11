@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 <html>
   <body>
+	  <h3 id="url" >  https://localhost:8080/ </h3>
+	  <input id="name" name="name"  />
+	  <input id="year" name="year"  />
+		<button id="button" >Submit</button>
+	    </body>
     <script type="text/javascript" src="./script.js">
+		const url = document.getElementById("url");
+		const name = document.getElementById("name");
+		const year = document.getElementById("year");
+		const button = document.getElementById("button");
+		button.addEventListener("click",()=>{
+			if(name.value.trim()!=="" and year.value.trim()==""){
+				url.innerHTML = `https://localhost:8080/?name=${name.value}`
+			}
+			if(year.value.trim()!=="" and name.value.trim()==""){
+				url.innerHTML = `https://localhost:8080/?year=${year.value}`;
+			}
+			if(year.value.trim()!=="" and name.value.trim()!==""){
+				url.innerHTML = `https://localhost:8080/?name=${name.value}/?year=${year.value}`;
+			}
+		})
 </script>
-  </body>
+
 
 </html>
