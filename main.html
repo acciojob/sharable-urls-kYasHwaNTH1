@@ -6,22 +6,6 @@
 	  <input id="year" name="year"  />
 		<button id="button" >Submit</button>
 	    </body>
-    <script type="text/javascript" >
-		// your code here
-const url = document.getElementById("url");
-		const name = document.getElementById("name");
-		const year = document.getElementById("year");
-		const button = document.getElementById("button");
-		button.addEventListener("click",()=>{
-			if(name.value.trim()!=="" && year.value.trim()==""){
-				url.innerHTML = `https://localhost:8080/?name=${encodeURIComponent(name.value)}`
-			}
-			if(year.value.trim()!=="" && name.value.trim()==""){
-				url.innerHTML = `https://localhost:8080/?year=${encodeURIComponent(year.value)}`;
-			}
-			if(year.value.trim()!=="" && name.value.trim()!==""){
-				url.innerHTML = `https://localhost:8080/?name=${encodeURIComponent(name.value)}/?year=${encodeURIComponent(year.value)}`;
-			}
-		})
+    <script type="text/javascript" src="script.js">
 </script>
 </html>
